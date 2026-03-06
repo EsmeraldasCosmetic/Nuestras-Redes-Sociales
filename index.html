@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="icon" href="Icono.png" type="image/png">
+    <title>Links | Esmeralda's Cosmetic</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bebas': ['"Bebas Neue"', 'sans-serif'],
+                        'sans': ['"Montserrat"', 'sans-serif'],
+                        'script': ['"Playlist Script"', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            rose: '#c58c85',       
+                            roseDark: '#a66e68',   
+                            pale: '#fdf2f4',       
+                            black: '#151515',      
+                            whatsapp: '#25D366',
+                            footerPink: '#f9c5dc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Playlist Script';
+            src: url('Playlist Script.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body { 
+            background-color: #fdf2f4; /* brand-pale */
+            color: #151515; 
+            -webkit-tap-highlight-color: transparent; 
+            background-image: radial-gradient(#f9c5dc 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Estilos para los botones de enlaces */
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px 24px;
+            background-color: #ffffff;
+            color: #151515;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border: 2px solid #ffffff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn:hover, .link-btn:active { 
+            background-color: #151515; 
+            color: #ffffff;
+            border-color: #151515;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .link-btn.primary {
+            background-color: #c58c85; /* brand-rose */
+            color: #ffffff;
+            border-color: #c58c85;
+        }
+        
+        .link-btn.primary:hover, .link-btn.primary:active {
+            background-color: #a66e68; /* brand-roseDark */
+            border-color: #a66e68;
+        }
+
+        .link-btn i {
+            position: absolute;
+            left: 24px;
+            font-size: 1.2rem;
+        }
+
+        /* Animación de entrada en cascada */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botón de compartir flotante */
+        .share-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            color: #151515;
+            z-index: 50;
+            transition: transform 0.2s;
+        }
+        .share-btn:active { transform: scale(0.9); }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen py-10 px-4 relative"> 
+
+    <button id="share-btn" class="share-btn" aria-label="Compartir perfil">
+        <i class="fas fa-ellipsis-h"></i>
+    </button>
+
+    <main class="w-full max-w-[400px] mx-auto flex flex-col items-center">
+        
+        <div class="stagger-item w-28 h-28 rounded-full border-4 border-white shadow-lg overflow-hidden mb-4 bg-white flex items-center justify-center">
+            <img src="logo.png" alt="Esmeralda's Cosmetic" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Esmeraldas+Cosmetic&background=c58c85&color=fff'">
+        </div>
+        
+        <h1 class="stagger-item font-script text-4xl text-brand-rose leading-none mb-1 text-center">
+            Esmeralda's Cosmetic
+        </h1>
+        <p class="stagger-item text-xs font-sans text-brand-black/70 mb-8 flex items-center gap-1 uppercase tracking-widest font-bold text-center">
+            Envíos a todo el país <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg" alt="GT" class="h-3 w-auto inline">
+        </p>
+
+        <div class="w-full space-y-4 flex flex-col" id="links-container">
+            
+            <a href="https://esmeraldascosmetic.github.io/OficialPage/" class="stagger-item link-btn primary">
+                <i class="fas fa-shopping-bag"></i>
+                Tienda Online
+            </a>
+
+            <a href="https://esmeraldascosmetic.github.io/OficialPage/nuestrahistoria.html" class="stagger-item link-btn primary">
+                <i class="bi bi-calendar2-heart"></i>
+                Sobre Nosotros
+            </a>
+
+            <a href="https://wa.me/50235739640" target="_blank" class="stagger-item link-btn" style="color: #25D366;">
+                <i class="fab fa-whatsapp"></i>
+                <span class="text-brand-black">Atención por WhatsApp</span>
+            </a>
+
+            
+        </div>
+
+        <div class="stagger-item mt-10 flex justify-center space-x-6 text-2xl text-brand-black">
+            <a href="https://www.instagram.com/esmeraldascosmetic/" target="_blank" class="hover:text-brand-rose transition transform hover:scale-110">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/EsmeraldasCosmeticOficial" target="_blank" class="hover:text-brand-rose transition transform hover:scale-110">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@esmeraldascosmetic" target="_blank" class="hover:text-brand-rose transition transform hover:scale-110">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Animación en cascada (Staggered fade-in)
+            const items = document.querySelectorAll('.stagger-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100); // 100ms de retraso entre cada elemento
+            });
+
+            // 2. Web Share API (Para el botón de compartir)
+            const shareBtn = document.getElementById('share-btn');
+            
+            shareBtn.addEventListener('click', async () => {
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: "Esmeralda's Cosmetic",
+                            text: "Descubre nuestro catálogo exclusivo de maquillaje con envíos a toda Guatemala 🇬🇹",
+                            url: window.location.href
+                        });
+                    } catch (err) {
+                        console.log('Error al compartir:', err);
+                    }
+                } else {
+                    // Fallback si el navegador no soporta Web Share API
+                    navigator.clipboard.writeText(window.location.href);
+                    
+                    // Pequeño feedback visual
+                    const icon = shareBtn.querySelector('i');
+                    icon.classList.remove('fa-ellipsis-h');
+                    icon.classList.add('fa-check', 'text-green-500');
+                    setTimeout(() => {
+                        icon.classList.remove('fa-check', 'text-green-500');
+                        icon.classList.add('fa-ellipsis-h');
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
